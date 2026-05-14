@@ -1,5 +1,7 @@
 ## Cause and effect
 
+![x86-64 Diassembly Analysis ((Hex-Dump)_20260515_060949_0000.png](https://github.com/user-attachments/assets/23a4ecf7-ed20-48df-b8ea-72dbcea6ea74)
+
 If an OS experiences a thread fail on a syscall and the system call is invalid, the OS will issue a drift instruction to the Wrapper. Such as sign or register to the instruction low level to overcome the overhead of the array network to CPU/GPU and Memory. As in the example in this lattice, when the OS experiences an Overflow flag because previously the victim's device experienced a shutdown and reloaded the OS, but after a while the OS experienced a fail-stamp and experienced a malfunction when .so files migrated in the environment between Linux OS, the system copied and exhibited every compromised in the instructions that occurred previously; then opens a fatal flaw in the underlying heap storage.
 
 ### Hexadecimal Dencryption In x86-64 Assembly point of view
