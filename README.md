@@ -34,6 +34,6 @@ My hypothesis about the padding in such a long sequence is that it is a multi-by
 
 conclusion [CC3]: 
 
-Kode ini sangat wajar ditemukan di shared libraries Linux standar. Ini adalah fungsi penutup dari sebuah syscall yang menangani potensi error, lalu diakhiri dengan padding memori. Tidak harus selalu berarti OS tersebut "dikompromikan" (bisa jadi ini hanya bagian dari OS yang berjalan normal), tetapi sering kali kode semacam ini dianalisis saat membuat Return-Oriented Programming (ROP) chain dalam pembuatan exploit.
+This code are just an ordinary that we could be found it in shared libraries Linux environment. This are close function from ```syscall``` which handles potential errors, then endded with padding memory. It doesn't have to be always the OS is should "compromised" it could be that this is just part of the OS running normal condition, but often this kind of code is analyzed when creating Return-Oriented Programming (ROP) chain in exploit creation.
 
 This code is quite common in standard Linux shared libraries. It's a closing function of a **syscall** that handles potential errors and ends with memory padding.It doesn't always mean the OS is "compromised" but could just be a part of the OS that is running normally, but often this kind of code runs normally, However, my opinion and analysis of the Hex code and uncondition OS can be used to create a Return-Oriented Programming (ROP) chain exploit stage.
