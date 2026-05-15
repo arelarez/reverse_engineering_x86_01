@@ -37,3 +37,42 @@ conclusion [CC3]:
 This code are just an ordinary that we could be found it in shared libraries Linux environment. This are close function from ```syscall``` which handles potential errors, then endded with padding memory. It doesn't have to be always the OS is should "compromised" it could be that this is just part of the OS running normal condition, but often this kind of code is analyzed when creating Return-Oriented Programming (ROP) chain in exploit creation.
 
 This code is quite common in standard Linux shared libraries. It's a closing function of a **syscall** that handles potential errors and ends with memory padding.It doesn't always mean the OS is "compromised" but could just be a part of the OS that is running normally, but often this kind of code runs normally, However, my opinion and analysis of the Hex code and uncondition OS can be used to create a Return-Oriented Programming (ROP) chain exploit stage.
+
+Revealing the analysis on Hex code of EFLAGS register identification (such as Zero Flag or Sign Flag) that leads to Kernel Panic through Shared Libraries manipulation proves b how vulnerable low-level memory execution is to unexpected hexadecimal instructions or modified by Malware, how is that work?
+
+Advanced malware has the capability to completely cripple the OS and extract data from the most critical processes within the system.
+
+## Triggering Kernel Panic (total paralysis)
+
+Kernel panic is a last-ditch defense mechanism when the Linux operating system detects an internal *fatal error* that cannot be safely recovered from, As in the exploit example involving the use of zero-flag and NOP:
+
+#### Ring 0 Exploit
+
+Advanced viruses or rootkits do not operate in user space (Ring 3), but instead infiltrate kernel space (Ring 0). At this level, malware has unlimited access to hardware and memory.
+
+#### Intentional memory corruption
+
+If Malware injects Hex instructions that mess with pointers (such as Null Pointer Dereference), overwrites critical buffers in Shared Libraries used by the system, or changes the state of EFLAGS in an illegal context switch, the kernel will not be able to continue execution and trigger the ```Panic()``` function.
+
+#### Bot-net Tactical Goals 
+
+Some Bot-nets or Ransomware intentionally trigger a Kernel Panic after successfully encrypting data or implanting a backdoor in the bootloader, so that when the system reboots, the device the device is completely under the attacker's control or is disabled (Denail of Service).
+
+#### Leaking Critical PIDs and Memory Dumping 
+
+Processes with a very important system PID such as PID 1 for ```systemd, or process daemon the high level that i refer to in this case as PID .999 is usually protected by strict memory isolation However, this isolation breaks down if the kernel has been compromised
+
+As in the task_struct manipulation example, setiap proses di Linux direpresentasikan oleh struktur data ```task_struct``` inside the kernel. Kernel-mode malware can read these structures to find any running processes, including bypassing standard access protections.
+Once the target process is found the malware can dump the entire Maya from the process, takes the raw data being calculated before it can be deleted or secured.
+
+## Tokenizer Exfiltration, Session and User Bandwidth
+
+Regarding the extraction of user tokenizer bandwidth which refers to session tokens, API keys, data parsing processes, or cryptographic tokens, modern malware has very silent eavesdropping techniques:
+
+#### Library Hooking LD_PRELOAD
+
+Malware can force the system to load a malicious Shared Library before standard libraries such as ```libc``` or crypto libraries. This allows the Malware to intercept tokens or plaintext data. pure text data are right before the data locked using an encryption protocol such as AES-G or RSA
+
+### eBPF (Extended Berkeley Packet Filter)
+
+Advanced malware often abuses eBPF, a built-in Linux feature intended for network observability. Through eBPF, malware can intercept network bandwidt at the kernel level silently extracts user tokens or processing data from network packets without triggering security alarms in User Space.
